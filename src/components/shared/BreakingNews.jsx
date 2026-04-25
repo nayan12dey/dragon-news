@@ -47,11 +47,7 @@ const BreakingNews = () => {
         }
     ]
 
-
-
-
-
-
+    
     return (
 
         <div className="w-full bg-black text-white container mx-auto">

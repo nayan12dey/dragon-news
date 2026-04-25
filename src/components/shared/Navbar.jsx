@@ -7,23 +7,6 @@ import NavLink from './NavLink';
 
 const Navbar = () => {
     return (
-        // <div className='container mx-auto flex justify-between mt-6'>
-        //     <div></div>
-        //     <ul className='flex justify-between items-center gap-5 text-gray-500'>
-        //         <li><Link href={"/"}>Home</Link></li>
-        //         <li><Link href={"/about-us"}>About</Link></li>
-        //         <li><Link href={"/carrer"}>Carrer</Link></li>
-        //     </ul>
-
-        //     <div className='flex items-center gap-2'>
-        //         <Image src={userAvatar} width={20} height={20} alt='User avatar'></Image>
-        //         <button className='btn bg-red-500 text-white'>
-        //             <Link href={"/login"}>Login</Link>
-        //         </button>
-        //     </div>
-        // </div>
-
-
         <div className="container mx-auto border-b bg-white">
             <div className="container mx-auto flex items-center justify-between py-4 px-2">
 

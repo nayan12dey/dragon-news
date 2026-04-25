@@ -7,7 +7,7 @@ import React from 'react';
 const NavLink = ({href, children}) => {
 
     const pathname = usePathname();
-    console.log("pathname", pathname)
+    // console.log("pathname", pathname)
 
     const isActive = href === pathname
 
@@ -17,4 +17,4 @@ const NavLink = ({href, children}) => {
     );
 };
 
-export default NavLink;
+export default NavLink; 
