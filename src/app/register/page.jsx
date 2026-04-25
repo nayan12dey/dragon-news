@@ -10,3 +10,7 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
+
+
+// 46-3 theke start korbo
