@@ -4,8 +4,9 @@
 import { authClient } from '@/lib/auth-client';
 import { error } from 'better-auth/api';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const LoginPage = () => {
 
@@ -30,7 +31,7 @@ const LoginPage = () => {
         console.log("error", error)
     }
 
-
+    const [isShowPassword, SetIsShowPassword] = useState(false)
 
 
 
@@ -45,11 +46,12 @@ const LoginPage = () => {
                         <input type="text" className="input" placeholder="Enter your email address" name='email' {...register("email", { required: "Email field is required" })} />
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </fieldset>
-                    <fieldset className="fieldset">
+                    <fieldset className="fieldset relative">
                         <legend className="fieldset-legend text-lg">Password</legend>
-                        <input type="password" className="input" placeholder="Enter your password" name='password'
+                        <input type={isShowPassword ? "text" : "password"} className="input" placeholder="Enter your password" name='password'
                             {...register("password", { required: "Password field is required" })}
                         />
+                        <span className='absolute right-2 top-5 cursor-pointer' onClick={() => SetIsShowPassword(!isShowPassword)}>{isShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </fieldset>
 

@@ -3,8 +3,9 @@
 
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const RegisterPage = () => {
 
@@ -33,17 +34,18 @@ const RegisterPage = () => {
         console.log("data", res)
         console.log("error", error);
 
-        if(error){
+        if (error) {
             alert(error.message)
         }
 
-        if(res){
+        if (res) {
             alert("SignUp Successful")
         }
     }
 
     console.log("watch", watch("email"))
 
+    const [isShowPassword, SetIsShowPassword] = useState(false)
 
 
 
@@ -64,7 +66,7 @@ const RegisterPage = () => {
 
                     </fieldset>
                     <fieldset className="fieldset">
-                        <legend className="fieldset-legend text-lg">Name address</legend>
+                        <legend className="fieldset-legend text-lg">Name</legend>
                         <input type="text" className="input" placeholder="Enter your name" name='name' {...register("name", { required: "Name field is required" })} />
                         {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                     </fieldset>
@@ -77,11 +79,13 @@ const RegisterPage = () => {
                     </fieldset>
 
 
-                    <fieldset className="fieldset">
+                    <fieldset className="fieldset relative">
                         <legend className="fieldset-legend text-lg">Password</legend>
-                        <input type="password" className="input" placeholder="Enter your password" name='password'
+                        <input type={isShowPassword ? "text" : "password"} className="input" placeholder="Enter your password" name='password'
                             {...register("password", { required: "Password field is required" })}
                         />
+                        <span className='absolute right-10 top-5 cursor-pointer' onClick={() => SetIsShowPassword(!isShowPassword)}>{isShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
+                        {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </fieldset>
 
@@ -98,3 +102,8 @@ export default RegisterPage;
 
 
 
+
+
+
+
+// 47-5 Logged In User, Signout, Password Toggle theke start korbo
